@@ -1,0 +1,12 @@
+{  
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "sourceMap": true
+  },
+
+  "include": ["src/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
