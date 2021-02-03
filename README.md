@@ -1,7 +1,7 @@
 # autoscout24-task
 ## Introduction
 
-This project was made a requirement in the hiring process at autoscout24 Gmbh. In this project, two CSV files were provided:
+This project was made as a requirement in the hiring process at autoscout24 Gmbh. In this project, two CSV files were provided:
 - Listings.csv
 - Contacts.csv
 
