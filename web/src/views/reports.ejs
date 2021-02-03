@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js News</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1> Listings report generator </h1>
+        <p align="right">
+            <form action="/" method="get">
+                <input  type="submit" value="Click here to start again" />
+            </form>
+        </p>
+    </header>
+    <div class="wrapper">
+        <div class="reports">
+            <% reports.forEach(function(report, index){ %>
+
+                <% if(report.req === 1) {%> 
+
+                <div class="report__card">
+                    <h2> <%- report.header %> </h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td> <strong>Seller type</strong></td>
+                                <td> <strong>Average price</strong> </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i=0; i < report.data.length; i++) { %>
+                            <tr>
+                                <td><%= report.data[i].seller_type %></td>
+                                <td>€ <%= ~~report.data[i].average %>,-</td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                        </table>
+                        
+                </div>
+                <% }%>
+
+                <% if(report.req === 2) {%> 
+
+                    <div class="report__card">
+                        <h2> <%- report.header %> </h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td> <strong>Make</strong></td>
+                                    <td> <strong>Percentual Distribution</strong> </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i=0; i < report.data.length; i++) { %>
+                                <tr>
+                                    <td><%= report.data[i].make %></td>
+                                    <td> <%= ~~(report.data[i].percent*100) %>%</td>
+                                </tr>
+                                <% };%>
+                            </tbody>
+                            </table>
+                            
+                    </div>
+                <% }%>
+
+                <% if(report.req === 3) {%> 
+
+                    <div class="report__card">
+                        <h2> <%- report.header %> </h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td> <strong>Average Price</strong></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> € <%= ~~(report.data.average_price) %>,-</td>
+                                </tr>
+                            </tbody>
+                            </table>
+                            
+                    </div>
+                <% }%>
+
+                <% if(report.req === 4) {%> 
+                    
+                    <h2> <%- report.header %> </h2>
+
+                    <% report.data.forEach(function(monthly_listing, index){ %>
+                        <div class="report__card">
+
+                        <p>Month: <%- monthly_listing.month%> . <%- monthly_listing.year%> </p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td> <strong>Listing Id</strong></td>
+                                    <td> <strong>Make</strong></td>
+                                    <td> <strong>Selling Price</strong></td>
+                                    <td> <strong>Mileage</strong></td>
+                                    <td> <strong>Total Amount of contacts</strong></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i=0; i < monthly_listing.top_five.length; i++) { %>
+                                    <tr>
+                                        <td> <%= monthly_listing.top_five[i].id %></td>
+                                        <td> <%= monthly_listing.top_five[i].make %></td>
+                                        <td> € <%= ~~(monthly_listing.top_five[i].price) %>,-</td>
+                                        <td> <%= monthly_listing.top_five[i].mileage %> KM</td>
+                                        <td> <%= monthly_listing.top_five[i].contacted %></td>
+                                    </tr>
+                                <% };%>
+                            </tbody>
+                            </table>
+                                
+                        </div>
+                    <% });%>
+                <% }%>
+
+            <% })%>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js News</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1> Listings report generator </h1>
+    </header>
+    <div class="wrapper">
+
+        <p>
+            In order to generate a report, you need to upload 2 csv files. <br>
+            The first CSV file has to include listing information. <br>
+            The secong CSV file has to include contacts information. <br>
+        </p>
+        <div class="container col-sm-12" id="choose-files" oncopy="return false" oncut="return false" onpaste="return false">
+            <div class="row">
+                <br>
+                <br>
+
+                <form action="/upload_listing" method="post" enctype="multipart/form-data" >
+                     <b>Listings CSV file:</b>
+                     <input type="file" name="listing" id="listingsfile_id"/>
+                     <input type="submit" value="Upload a file"/>
+                </form>
+
+            </div>
+          </div>
+    </div>
+</body>
+</html> 
