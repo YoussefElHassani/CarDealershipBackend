@@ -1,4 +1,4 @@
-# autoscout24-task
+# Car dealership backend project
 ## Introduction
 
 This project was made as a requirement in the hiring process at autoscout24 Gmbh. In this project, two CSV files were provided:
